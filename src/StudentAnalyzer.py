@@ -8,7 +8,8 @@ class StudentAnalyzer:
 
     def calculate_quartiles(self) -> List[int]:
         # Соберем все рейтинги в один список
-        all_ratings = [score for student_scores in self.data.values() for _, score in student_scores]
+        all_ratings = [score for student_scores in self.data.values()
+                       for _, score in student_scores]
 
         # Отсортируем рейтинги по возрастанию
         sorted_ratings = sorted(all_ratings)

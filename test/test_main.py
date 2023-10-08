@@ -23,5 +23,5 @@ def test_get_path_from_noncorrect_arguments(
         noncorrect_arguments_string: list[str]) -> None:
     with pytest.raises(SystemExit) as e:
         get_path_from_arguments(noncorrect_arguments_string[0])
-        
+
     assert e.type == SystemExit

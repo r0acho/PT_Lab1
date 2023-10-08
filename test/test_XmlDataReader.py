@@ -6,8 +6,7 @@ from src.XmlDataReader import XmlDataReader
 class TestXmlDataReader:
     @pytest.fixture()
     def file_and_data_content(self) -> tuple[str, DataType]:
-        xml = """
-                <?xml version="1.0" encoding="UTF-8" ?>
+        xml = """<?xml version="1.0" encoding="UTF-8" ?>
                 <root>
                     <Иванов_Иван_Иванович>
                         <математика>91</математика>
@@ -17,8 +16,7 @@ class TestXmlDataReader:
                         <русский_язык>87</русский_язык>
                         <литература>78</литература>
                     </Петров_Петр_Петрович>
-                </root>
-                """
+                </root>"""
         data = {
             "Иванов_Иван_Иванович": [
                 ("математика", 91), ("химия", 100)

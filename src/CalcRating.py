@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from typing import DataType
+from Types import DataType
 
 RatingType = dict[str, float]
 

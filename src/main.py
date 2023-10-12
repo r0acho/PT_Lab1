@@ -2,7 +2,7 @@
 import argparse
 import sys
 
-from CalcRating import CalcRating
+from StudentAnalyzer import StudentAnalyzer
 from XmlDataReader import XmlDataReader
 
 
@@ -19,8 +19,9 @@ def main():
     reader = XmlDataReader()
     students = reader.read(path)
     print("Students: ", students)
-    rating = CalcRating(students).calc()
-    print("Rating: ", rating)
+    first_quartile_students = StudentAnalyzer().\
+        students_in_first_quartile(students)
+    print("Students at first quartile : ", first_quartile_students)
 
 
 if __name__ == "__main__":

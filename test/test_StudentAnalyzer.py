@@ -12,10 +12,10 @@ class TestStudentAnalyzer:
         }
 
     def test_students_in_first_quartile(self, test_data):
-        analyzer = StudentAnalyzer(test_data)
+        analyzer = StudentAnalyzer()
         expected_students = {
             "Сидоров": [("география", 60), ("физика", 75)],
         }
 
-        students_in_quartile = analyzer.students_in_first_quartile()
+        students_in_quartile = analyzer.students_in_first_quartile(test_data)
         assert students_in_quartile == expected_students

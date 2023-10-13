@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 import argparse
 import sys
+from DataReader import DataReader
+import os
 
 from StudentAnalyzer import StudentAnalyzer
+from TextDataReader import TextDataReader
 from XmlDataReader import XmlDataReader
 
 
@@ -14,9 +17,21 @@ def get_path_from_arguments(args) -> str:
     return args.path
 
 
+def get_current_reader(path: str) -> DataReader:
+    _, file_extension = os.path.\
+        splitext(path)
+    match file_extension:
+        case ".txt":
+            return TextDataReader()
+        case ".xml":
+            return XmlDataReader()
+        case _:
+            raise ValueError("Неподдерживаемый формат")
+
+
 def main():
     path = get_path_from_arguments(sys.argv[1:])
-    reader = XmlDataReader()
+    reader = get_current_reader(path)
     students = reader.read(path)
     print("Students: ", students)
     first_quartile_students = StudentAnalyzer().\

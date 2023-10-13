@@ -9,9 +9,11 @@ import pytest
 def correct_arguments_string_txt() -> tuple[list[str], str]:
     return ["-p", "/home/user/file.txt"], "/home/user/file.txt"
 
+
 @pytest.fixture()
 def correct_arguments_string_xml() -> tuple[list[str], str]:
     return ["-p", "/home/user/file.txt"], "/home/user/file.xml"
+
 
 @pytest.fixture()
 def noncorrect_arguments_string() -> list[str]:
@@ -31,10 +33,12 @@ def test_get_path_from_noncorrect_arguments(
 
     assert e.type == SystemExit
 
+
 def get_correct_reader_txt(
         correct_arguments_string_txt: tuple[list[str], str]) -> None:
     path = get_path_from_arguments(correct_arguments_string_txt[0])
     assert TextDataReader == get_current_reader(path)
+
 
 def get_correct_reader_xml(
         correct_arguments_string_xml: tuple[list[str], str]) -> None:
